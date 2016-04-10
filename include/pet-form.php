@@ -68,13 +68,28 @@
         <input type="number" name="age" maxlength="2"
             placeholder="Dog's Age"
             value="<?= isset($formAge) ? $formAge : ''?>">
+<?php
+	if ($is_fixed == 1) {
+		echo "<p><input type="checkbox" name="fixed" checked="checked"> Pet is neutered (Spayed/Castrated)</p>";
+	} else {
+		echo "<p><input type="checkbox" name="fixed"> Pet is neutered (Spayed/Castrated)</p>";
+	}
+	if ($is_vaccinated == 1) {
+		echo "<p><input type="checkbox" name="vax" checked="checked"> Pet is up to date on vaccines</p>";
+	} else {
+		echo "<p><input type="checkbox" name="vax"> Pet is up to date on vaccines</p>";
+	}
+?>			
 			
-<!--	<input type="checkbox" name="fixed" value= $fixed>	-->
+			
+			
+<!--	<input type="checkbox" name="fixed" value= $fixed>
 
 		<p><input type="checkbox" name="fixed"> Pet is neutered (Spayed/Castrated)</p>
 		<p><input type="checkbox" name="vax"> Pet is up to date on vaccines</p>
-		
-		<?php $is_fixed = isset($_POST['is_fixed']) ? 1 : 0; ?>
+-->		
+	
+<!-- <?php $is_fixed = isset($_POST['is_fixed']) ? 1 : 0; ?> -->
 		
 <!-- date created -->
 
