@@ -36,7 +36,16 @@
     } else {
 		$is_fixed = false;
         if (isset($pet)) {
-            $formIs_fixed = $pet->dog_name;
+            $formIs_fixed = $pet->is_fixed;
+        }
+    }
+	
+	if (isset($_POST['is_vaccinated'])) {
+		$is_vaccinated = true;
+    } else {
+		$is_vaccinated = false;
+        if (isset($pet)) {
+            $formIs_fixed = $pet->is_vaccinated;
         }
     }
 ?>
@@ -70,28 +79,16 @@
             value="<?= isset($formAge) ? $formAge : ''?>">
 <?php
 	if ($is_fixed == 1) {
-		echo "<p><input type="checkbox" name="fixed" checked="checked"> Pet is neutered (Spayed/Castrated)</p>";
+		echo '<p><input type="checkbox" name="fixed" checked="checked"> Pet is neutered (Spayed/Castrated)</p>';
 	} else {
-		echo "<p><input type="checkbox" name="fixed"> Pet is neutered (Spayed/Castrated)</p>";
+		echo '<p><input type="checkbox" name="fixed"> Pet is neutered (Spayed/Castrated)</p>';
 	}
 	if ($is_vaccinated == 1) {
-		echo "<p><input type="checkbox" name="vax" checked="checked"> Pet is up to date on vaccines</p>";
+		echo '<p><input type="checkbox" name="vax" checked="checked"> Pet is up to date on vaccines</p>';
 	} else {
-		echo "<p><input type="checkbox" name="vax"> Pet is up to date on vaccines</p>";
+		echo '<p><input type="checkbox" name="vax"> Pet is up to date on vaccines</p>';
 	}
-?>			
-			
-			
-			
-<!--	<input type="checkbox" name="fixed" value= $fixed>
-
-		<p><input type="checkbox" name="fixed"> Pet is neutered (Spayed/Castrated)</p>
-		<p><input type="checkbox" name="vax"> Pet is up to date on vaccines</p>
--->		
-	
-<!-- <?php $is_fixed = isset($_POST['is_fixed']) ? 1 : 0; ?> -->
-		
-<!-- date created -->
+?>
 
 		<input type="submit" value="Save">
 		<input type="button" value="Cancel" onclick="location = './'">
